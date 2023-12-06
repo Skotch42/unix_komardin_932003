@@ -17,7 +17,7 @@ fi
 output=$(grep -o "&Output:[[:space:]]*[a-zA-Z0-9_]*\.txt" "$input" | awk '{print $2}')
 
 if [ -z "$output" ]; then
-    echo "output file name not specified!"
+    echo "Output file name not specified!"
     exit 3
 fi
 
