@@ -20,7 +20,7 @@ while true; do
     flock -u 9
     exec 9>&-
 
-    echo "$(hostname) - $(date +%s)" > "/temp/$new_file"
+    echo "$(hostname) - $(date +%T)" > "/temp/$new_file"
 
     sleep 1
 
