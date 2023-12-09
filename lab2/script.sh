@@ -12,7 +12,7 @@ generator()
 
 while true; do
 
-    exec 9>/var/lockfile
+    exec 9>/var/lock/mylockfile
     flock -n 9 || continue
 
     new_file=$(generator)
