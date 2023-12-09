@@ -12,13 +12,13 @@ generator()
 
 while true; do
 
-    exec 5>/var/lockfile
-    flock -n 5 || continue
+    exec 9>/var/lockfile
+    flock -n 9 || continue
 
     new_file=$(generator)
 
-    flock -u 5
-    exec 5>&-
+    flock -u 9
+    exec 9>&-
 
     echo "$(hostname) - $(date +%s)" > "/temp/$new_file"
 
