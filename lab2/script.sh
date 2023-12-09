@@ -17,12 +17,12 @@ while true; do
 
     new_file=$(generator)
 
-    flock -u 9
-    exec 9>&-
-
     current_count=$(cat /temp/temp_counter)
 
     echo $((current_count + 1)) > /temp/temp_counter
+
+    flock -u 9
+    exec 9>&-
 
     echo "$(hostname) - $(date +%T) - $current_count" > "/temp/$new_file"
 
