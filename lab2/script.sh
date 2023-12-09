@@ -20,7 +20,11 @@ while true; do
     flock -u 9
     exec 9>&-
 
-    echo "$(hostname) - $(date +%T)" > "/temp/$new_file"
+    current_count=$(cat /temp/temp_counter)
+
+    echo $((current_count + 1)) > /temp/temp_counter
+
+    echo "$(hostname) - $(date +%T) - $current_count" > "/temp/$new_file"
 
     sleep 1
 
