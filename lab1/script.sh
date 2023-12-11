@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ "$#" -ne 1 ]; then
-    echo "Number of command line arguments is not 1!"
-    exit 1
-fi
-
 input="$1"
 temp_d=$(mktemp -d)
 trap 'rm -rf "$temp_d"' HUP INT QUIT PIPE TERM EXIT
