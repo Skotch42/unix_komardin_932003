@@ -7,7 +7,7 @@ fi
 
 input="$1"
 temp_d=$(mktemp -d)
-trap 'rm -rf "$temp_d"' HUP INT QUIT KILL PIPE TERM EXIT
+trap 'rm -rf "$temp_d"' HUP INT QUIT PIPE TERM EXIT
 
 if [ ! -f "$input" ] || [ ! -r "$input" ]; then
     echo "Cannot find or read source file!"
