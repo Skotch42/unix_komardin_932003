@@ -1,7 +1,9 @@
 #!/bin/sh
 
 input="$1"
+initial_d=$(pwd)
 temp_d=$(mktemp -d)
+cd "$temp_d"
 trap 'rm -rf "$temp_d"' HUP INT QUIT PIPE TERM EXIT
 
 if [ ! -f "$input" ] || [ ! -r "$input" ]; then
@@ -29,5 +31,7 @@ if [ $? -ne 0 ]; then
 fi
 
 mv "$temp_d/$output" "$(dirname "$input")/$output"
+
+cd "$initial_d"
 
 echo "Compilation succeeded. Output: $(dirname "$input")/$output"
