@@ -12,7 +12,7 @@ do
         ((counter++))
     done
     
-    exec 3>&-
+    exec 3<&-
 
     echo "$(hostname) $counter" > "/my_volume/$(printf "%03d" $counter).txt"
 
