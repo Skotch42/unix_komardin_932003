@@ -2,7 +2,7 @@
 
 while true
 do
-    exec 3>/var/lock/mylockfile
+    exec 3>/my_volume/mylockfile
     flock 3
 
     counter=1
