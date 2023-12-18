@@ -3,7 +3,7 @@
 while true
 do
     exec 3>/my_volume/mylockfile
-    flock 3
+    flock -x 3
 
     counter=1
         
@@ -12,7 +12,6 @@ do
         ((counter++))
     done
     
-    flock -u 3
     exec 3>&-
 
     echo "$(hostname) $counter" > "/my_volume/$(printf "%03d" $counter).txt"
