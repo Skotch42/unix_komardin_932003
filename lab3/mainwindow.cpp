@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    this->setCentralWidget(ui->textEdit) ;
+    this->setCentralWidget(ui->textEdit);
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +20,8 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionNew_triggered()
 {
-    file_path = ""   ;
-    ui->textEdit->setText("") ;
+    file_path = "";
+    ui->textEdit->setText("");
 }
 
 void MainWindow::on_actionOpen_triggered()
@@ -44,61 +44,61 @@ void MainWindow::on_actionOpen_triggered()
 
 void MainWindow::on_actionSave_triggered()
 {
-    QFile   file(file_path) ;
+    QFile   file(file_path);
 
     if(!file.open(QFile::WriteOnly | QFile::Text))
     {
-        QMessageBox ::warning(this,"..","file not open\n")  ;
-        return  ;
+        QMessageBox ::warning(this,"..","file not open\n");
+        return;
     }
 
-    QTextStream  out(&file)  ;
-    QString  text =  ui->textEdit->toPlainText()   ;
-    out << text  ;
-    file.flush()  ;
-    file.close() ;
+    QTextStream  out(&file);
+    QString  text =  ui->textEdit->toPlainText();
+    out << text;
+    file.flush();
+    file.close();
 }
 
 void MainWindow::on_actionSave_as_triggered()
 {
-    QString file_name   =  QFileDialog::getSaveFileName(this,"Open this file ") ;
-    QFile   file(file_name) ;
-    file_path=file_name ;
+    QString file_name   =  QFileDialog::getSaveFileName(this,"Open this file ");
+    QFile   file(file_name);
+    file_path=file_name;
 
     if(!file.open(QFile::WriteOnly | QFile::Text))
     {
-        QMessageBox ::warning(this,"..","file not open\n")  ;
-        return  ;
+        QMessageBox ::warning(this,"..","file not open\n");
+        return;
     }
 
-    QTextStream  out(&file)  ;
-    QString  text =  ui->textEdit->toPlainText()   ;
-    out << text  ;
-    file.flush()  ;
-    file.close() ;
+    QTextStream  out(&file);
+    QString  text =  ui->textEdit->toPlainText();
+    out << text;
+    file.flush();
+    file.close();
 }
 
 void MainWindow::on_actionCut_triggered()
 {
-    ui->textEdit->cut() ;
+    ui->textEdit->cut();
 }
 
 void MainWindow::on_actionCopy_triggered()
 {
-    ui->textEdit->copy() ;
+    ui->textEdit->copy();
 }
 
 void MainWindow::on_actionPaste_triggered()
 {
-    ui->textEdit->paste() ;
+    ui->textEdit->paste();
 }
 
 void MainWindow::on_actionRedo_triggered()
 {
-    ui->textEdit->redo() ;
+    ui->textEdit->redo();
 }
 
 void MainWindow::on_actionUndo_triggered()
 {
-    ui->textEdit->undo() ;
+    ui->textEdit->undo();
 }
